@@ -1,0 +1,5 @@
+Store
+    - options en el Mongo.client
+
+PhonesStore
+    - lo que devuelve el find
