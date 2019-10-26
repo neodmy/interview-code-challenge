@@ -9,6 +9,7 @@ const init = async () => {
     const port = Number(process.env.PORT) || 3001;
     app.set('port', port);
     const server = http.createServer(app);
+    server.setTimeout(5000);
     await server.listen(port);
     logger.info(`Server listening on port ${port}`);
   } catch (error) {
