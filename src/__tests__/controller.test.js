@@ -3,7 +3,7 @@
 const assert = require('assert');
 
 const { phonesController } = require('../controllers')();
-const phones = require('./examples');
+const phones = require('../../examples');
 
 describe('PhonesController test', () => {
   describe('Happy paths', () => {
@@ -19,6 +19,11 @@ describe('PhonesController test', () => {
       await phonesController.insertOne(phones[1]);
       const result = await phonesController.deleteAll();
       assert.equal(result, 2);
+    });
+    it('should insert 8 at once', async () => {
+      const result = await phonesController.insertOne(phones);
+      await phonesController.deleteAll();
+      assert.notEqual(result.length, phones.length);
     });
     it('should get all (there were 2)', async () => {
       await phonesController.insertOne(phones[0]);
@@ -58,6 +63,11 @@ describe('PhonesController test', () => {
       await phonesController.deleteAll();
       const result = await phonesController.findOneById(inserted._id);
       assert.equal(result, null);
+    });
+    it('should insert nothing', async () => {
+      const result = await phonesController.insertOne([]);
+      await phonesController.deleteAll();
+      assert.notEqual(result.length, 0);
     });
     it('should not update (bad id)', async () => {
       const inserted = await phonesController.insertOne(phones[0]);

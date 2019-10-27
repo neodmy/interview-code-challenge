@@ -20,6 +20,7 @@ module.exports = (connectMongo) => {
         };
         return collection.insertOne(data);
       },
+      insertMany: () => collection.insertMany(inputData),
       updateOneById: () => collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: inputData }, { returnOriginal: false }),
       deleteOneById: () => collection.deleteOne({ _id: new ObjectId(id) }),
       deleteAll: () => collection.deleteMany({}),
@@ -33,6 +34,7 @@ module.exports = (connectMongo) => {
     findAll: () => querys('findAll')(),
     findOneById: (id) => querys('findOneById')(id),
     insertOne: (inputData) => querys('insertOne')(null, inputData),
+    insertMany: (inputData) => querys('insertMany')(null, inputData),
     updateOneById: (id, inputData) => querys('updateOneById')(id, inputData),
     deleteOneById: (id) => querys('deleteOneById')(id),
     deleteAll: () => querys('deleteAll')(),

@@ -1,6 +1,7 @@
 const { Router } = require('express');
 
 const createError = require('../utils/errors');
+const data = require('../../examples');
 
 const router = Router();
 
@@ -29,6 +30,12 @@ module.exports = (phonesController) => {
         res.status(201);
         res.send(newPhone);
       })
+      .catch((error) => next(error));
+  });
+
+  router.post('/populate', (req, res, next) => {
+    phonesController.insertMany(data)
+      .then((phones) => res.send(phones))
       .catch((error) => next(error));
   });
 

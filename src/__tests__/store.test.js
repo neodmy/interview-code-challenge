@@ -3,7 +3,7 @@
 const assert = require('assert');
 
 const { phonesStore } = require('../stores')();
-const phones = require('./examples');
+const phones = require('../../examples');
 
 describe('PhonesStore tests', () => {
   describe('Happy paths', () => {
@@ -20,6 +20,12 @@ describe('PhonesStore tests', () => {
       await phonesStore.insertOne(phones[1]);
       const { result } = await phonesStore.deleteAll();
       assert.equal(result.n, 2);
+    });
+
+    it('should insert 8 at once', async () => {
+      const { ops } = await phonesStore.insertMany(phones);
+      await phonesStore.deleteAll();
+      assert.equal(ops.length, 8);
     });
 
     it('should get all (there were 2)', async () => {

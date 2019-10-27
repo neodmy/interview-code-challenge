@@ -2,6 +2,7 @@ const http = require('http');
 
 const logger = require('./utils/logger');
 const initApp = require('./app');
+require('dotenv').config();
 
 const init = async () => {
   try {

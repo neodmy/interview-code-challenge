@@ -30,6 +30,17 @@ module.exports = (phonesStore) => {
   };
 
   /**
+   * Insert several objects
+   * @param {Array} inputData - The array containing data
+   * @returns An array with the documents inserted
+   */
+  const insertMany = async (inputData) => {
+    if (inputData.length === 0) return [];
+    const { ops } = await phonesStore.insertMany(inputData);
+    return ops;
+  };
+
+  /**
    * Updates previous values with the new ones from the given object
    * @param {number} id - The object id
    * @param {Object} inputData - The updated object
@@ -65,6 +76,7 @@ module.exports = (phonesStore) => {
     findAll,
     findOneById,
     insertOne,
+    insertMany,
     updateOneById,
     deleteOneById,
     deleteAll,

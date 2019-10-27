@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  backend:
+    image: 'neodmy/backend'
+    container_name: 'neodmy-backend'
+    environment:
+      - MONGODB=phones_db
+      - MONGOCOLLECTION=phones_collection
+      - MONGOHOST=mongodb
+      - MONGOPORT=27017
+      - PORT=3001
+    ports:
+      - 3001:3001
+    depends_on:
+      - 'mongodb'
+  mongodb:
+    image: 'mongo:4.2.1'
+    container_name: 'mongodb'
