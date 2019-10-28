@@ -52,9 +52,14 @@ module.exports = (phonesController) => {
   router.delete('/:id', (req, res, next) => {
     const { id } = req.params;
     phonesController.deleteOneById(id)
-      .then((modified) => (modified
-        ? res.send()
-        : next(createError('No such phone', 400))))
+      .then((modified) => {
+        if (modified) {
+          res.status(204);
+          res.send();
+        } else {
+          next(createError('No such phone', 400));
+        }
+      })
       .catch((error) => next(error));
   });
 

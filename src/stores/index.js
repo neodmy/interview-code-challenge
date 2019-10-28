@@ -6,7 +6,6 @@ const phones = require('./phonesStore');
 const mongoHost = process.env.MONGOHOST;
 const mongoPort = process.env.MONGOPORT;
 const mongoUrl = `mongodb://${mongoHost}:${mongoPort}`;
-console.log(mongoUrl);
 
 const connectMongo = async ({ db, col }) => {
   const client = await MongoClient.connect(mongoUrl, {
