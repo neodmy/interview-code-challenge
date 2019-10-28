@@ -2,11 +2,11 @@ const { MongoClient } = require('mongodb');
 
 const logger = require('../utils/logger');
 const phones = require('./phonesStore');
-require('dotenv').config();
 
 const mongoHost = process.env.MONGOHOST;
 const mongoPort = process.env.MONGOPORT;
 const mongoUrl = `mongodb://${mongoHost}:${mongoPort}`;
+console.log(mongoUrl);
 
 const connectMongo = async ({ db, col }) => {
   const client = await MongoClient.connect(mongoUrl, {

@@ -1,10 +1,12 @@
 /* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 const { ObjectId } = require('mongodb');
+const loadEnvTest = require('../utils/loadEnvTest');
 
+loadEnvTest();
 const phonesDbConfig = {
-  db: 'phones_database',
-  col: 'phones_collection',
+  db: process.env.MONGODB,
+  col: process.env.MONGOCOLLECTION,
 };
 
 module.exports = (connectMongo) => {

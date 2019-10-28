@@ -1,11 +1,12 @@
 const http = require('http');
 
+const loadEnvTest = require('./utils/loadEnvTest');
 const logger = require('./utils/logger');
 const initApp = require('./app');
-require('dotenv').config();
 
 const init = async () => {
   try {
+    loadEnvTest();
     const app = initApp();
     const port = Number(process.env.PORT) || 3001;
     app.set('port', port);
