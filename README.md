@@ -67,11 +67,11 @@ As suggested by the instructions provided, the REST APÎ deals with *phones* in 
 "manufacturer": "manufacturer name",
 "description": "a brief description",
 "color": "phone color",
-"price": 0 (a number showing the price),
+"price": 0,
 "imageFileName": "path to the static image file",
 "screen": "screen size and technology",
 "processor": "processor name",
-"ram": 0 (a number showing ram GB's)
+"ram": 0
 }
 ```
 When inserted in MongoDB, further requests on the above JSON will include the additional property
@@ -82,8 +82,8 @@ When inserted in MongoDB, further requests on the above JSON will include the ad
 ```
 The App enables to carry out CRUD operations through the following endpoints:
 
-> :warning: Server Timeout is set to 5000ms overriding default value, preventing an excessive waiting
-> 
+> :grey_exclamation: Server Timeout is set to 5000ms overriding default value, preventing an excessive waiting
+
 - Fetch all phones:
 	- URL `/phones`
 	- Method: `GET`
