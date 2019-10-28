@@ -2,14 +2,21 @@
 
 A simple REST Api for [GuideSmiths](https://www.guidesmiths.com/) Interview Challenge. It has been developed with [Nodejs](https://nodejs.org), relying on [Express](https://expressjs.com) middleware and [MongoDB](https://www.mongodb.com) for the persistence layer.
 
-This App is packed using [Docker](https://www.docker.com/) container , including the following files:
+This App is packed using [Docker](https://www.docker.com/) container, including the following files:
 - A docker-compose file to set up a MongoDB service on its own. You can run the provided tests and server locally.
 - A Dockerfile to create the App image.
 - A docker-compose file to run the above App image along with a MongoDB service.
 
-You can run these options as [npm scripts](https://docs.npmjs.com/misc/scripts). Please, refer to the [Usage]() section to further instructions.
+You can run these options as [npm scripts](https://docs.npmjs.com/misc/scripts). Please, refer to the [Usage](#usage) section for further instructions.
 
 Please, note that the first docker-compose is thought to run tests. Should you want to build a production like environment, building the App image and then running the second docker-compose file would be a better approach.
+
+# Table of Contents
+- [Usage](#usage)
+	- [Tests](#tests)
+	- [Production like environment](#production-like-environment)
+- [Server endpoints](#server-endpoints)
+
 
 # Usage
 ## Tests
@@ -26,7 +33,7 @@ which executes `DEV=1 mocha src/__tests__`. `DEV` flag indicates using developme
 
 You can also run the App locally:
 ```
-$ npm start
+$ npm start:local
 ```
 executing `DEV=1 node src/index.js`, although a second docker-compose file is provided to run the server along with MongoDB.
 
@@ -50,15 +57,15 @@ which will execute `docker build -t neodmy/backend .` building the server image 
 ```
 $ npm run server:up
 ```
-executing `docker-compose up`, which creates a container for the App named `neodmy-backend` and the MongoDB container named`mongodb`.
+executing `docker-compose up`, which creates a container for the App named `neodmy-backend` and the MongoDB container named `mongodb`.
 
 To stop both cointainers execute:
 ```
 $ npm run server:down
 ```
-which will execute
+which will execute `docker-compose down`.
 
-## Server endpoints
+# Server endpoints
 
 As suggested by the instructions provided, the REST APÎ deals with *phones* in JSON format, i.e.
 ```JSON
@@ -74,10 +81,10 @@ As suggested by the instructions provided, the REST APÎ deals with *phones* in 
 "ram": 0
 }
 ```
-When inserted in MongoDB, further requests on the above JSON will include the additional property
+When inserted in MongoDB, further requests on the above JSON will include the additional property:
 ```JSON
 {
-"_id": "5db734e189062a06c0b84c03" (MongoDB Id)
+"_id": "5db734e189062a06c0b84c03"
 }
 ```
 The App enables to carry out CRUD operations through the following endpoints:

@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "DEV=1 mocha src/__tests__",
-    "start": "DEV=1 node src/index.js",
+    "stat:local": "DEV=1 node src/index.js",
+    "start": "node src/index.js",
     "mongodb:up": "docker-compose -f docker-compose.mongo.yml up -d",
     "mongodb:down": "docker-compose -f docker-compose.mongo.yml down",
     "build": "docker build -t neodmy/backend .",
