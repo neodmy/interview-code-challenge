@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 const createError = require('../utils/errors');
-const data = require('../../examples');
+const data = require('../data/examples');
 
 const router = Router();
 

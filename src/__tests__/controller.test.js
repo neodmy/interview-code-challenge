@@ -3,7 +3,7 @@
 const assert = require('assert');
 
 const { phonesController } = require('../controllers')();
-const phones = require('../../examples');
+const phones = require('../data/examples');
 
 describe('PhonesController test', () => {
   describe('Happy paths', () => {

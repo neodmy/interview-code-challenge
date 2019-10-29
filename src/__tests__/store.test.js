@@ -3,7 +3,7 @@
 const assert = require('assert');
 
 const { phonesStore } = require('../stores')();
-const phones = require('../../examples');
+const phones = require('../data/examples');
 
 describe('PhonesStore tests', () => {
   describe('Happy paths', () => {

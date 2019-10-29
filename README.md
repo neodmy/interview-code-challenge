@@ -105,7 +105,7 @@ The App enables to carry out CRUD operations through the following endpoints:
 		- Code: `200 OK`
 		- Content: *phone* JSON
 - Add a new phone:
-	- URL: `/phones/
+	- URL: `/phones/`
 	- Method: `POST`
 	- Data Params: *phone* JSON
 	- Response:
