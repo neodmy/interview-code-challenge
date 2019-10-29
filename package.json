@@ -1,0 +1,41 @@
+{
+  "name": "interview-code-challenge",
+  "version": "1.0.0",
+  "description": "GuideSmiths interview code challenge",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "DEV=1 mocha src/__tests__",
+    "start:local": "DEV=1 node src/index.js",
+    "start": "node src/index.js",
+    "mongodb:up": "docker-compose -f docker-compose.mongo.yml up -d",
+    "mongodb:down": "docker-compose -f docker-compose.mongo.yml down",
+    "build": "docker build -t neodmy/backend .",
+    "server:up": "docker-compose up",
+    "server:down": "docker-compose down"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neodmy/interview-code-challenge.git"
+  },
+  "author": "David Miguel Yusta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neodmy/interview-code-challenge/issues"
+  },
+  "homepage": "https://github.com/neodmy/interview-code-challenge#readme",
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.1",
+    "mongodb": "^3.3.3",
+    "morgan": "^1.9.1",
+    "winston": "^3.2.1"
+  }
+}
