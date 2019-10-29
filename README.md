@@ -19,6 +19,12 @@ Please, note that the first docker-compose is thought to run tests. Should you w
 
 
 # Usage
+:grey_exclamation: In case you want to populate MongoDB with some initial data, try:
+```
+$ curl -X POST http://localhost:3001/phones/populate
+```
+or through endpoint `/phones/populate` provided in [#Server endpoints](#server-endpoints) section.
+
 ## Tests
 As mention above, you must previously set up the docker-compose file with MongoDB service as follow:
 
