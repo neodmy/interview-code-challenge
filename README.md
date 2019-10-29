@@ -26,7 +26,13 @@ $ curl -X POST http://localhost:3001/phones/populate
 or through endpoint `/phones/populate` provided in [#Server endpoints](#server-endpoints) section.
 
 ## Tests
-As mention above, you must previously set up the docker-compose file with MongoDB service as follow:
+
+As you will be running tests (and server through the option showed at the end of this section) locally, you must install the project dependencies:
+```
+$ npm install
+```
+
+As mention on the overview, you must previously set up the docker-compose file with MongoDB service as follow:
 
 ```
  $ npm run mongodb:up
